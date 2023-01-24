@@ -4,11 +4,25 @@
             label = "SZWL_console";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
             bindings
                 = <&macro_press &kp LALT>
-                , <&macro_tap &kp TILDE>
+                , <&macro_tap &kp GRAVE>
                 , <&macro_release &kp LALT>
                 ;
+        };
+    };
+};
+
+/ {
+    behaviors {
+        tlq: tlq {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TILDE_Q";
+            #binding-cells = <0>;
+            bindings = <&kp Q>, <&console>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
         };
     };
 };
